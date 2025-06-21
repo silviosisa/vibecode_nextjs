@@ -1,0 +1,110 @@
+🛰️ Project: GeoData Marketplace
+
+🧑‍💼 Target Users: Civil engineers, surveyors, urban planners, architects, government institutions.
+
+📦 Content:
+- Orthophotos (GeoTIFF or ZIP format) grouped by zone (labeled H, J, K... MN, STU, etc.)
+- Topographic maps (PDF format)
+- Stored in folders by zone
+
+🧱 Tech Stack:
+- Frontend: Next.js + TailwindCSS
+- Interactive Map: Leaflet.js or Mapbox GL JS
+- Backend: FastAPI (Python) or Node.js with Express
+- Database: PostgreSQL + PostGIS (or SQLite in dev)
+- File Storage: AWS S3 (mocked locally in dev)
+- Authentication: Email/Password (optionally Firebase/Auth0)
+- Payments: Stripe (test mode)
+
+---
+
+## 🔹 PART 1: Project Setup
+
+1. Initialize the project using Next.js + TailwindCSS.
+2. Create the base structure:
+   - `/pages/index.tsx` for homepage
+   - `/pages/explore.tsx` for browsing datasets
+   - `/pages/map/[slug].tsx` for individual map details
+   - `/pages/checkout.tsx` for payment
+   - `/pages/account.tsx` for user dashboard
+3. Set up global layout, navbar and footer.
+4. Install Leaflet or Mapbox for map display.
+5. Create a dummy `.geojson` file to simulate available zones (use boxes labeled H, J, K…).
+
+---
+
+## 🔹 PART 2: Homepage (`/`)
+
+- Design a modern landing page.
+- Include:
+  - Headline and CTA ("Explore Maps")
+  - Brief explanation of site purpose
+  - Interactive map with clickable zones (using GeoJSON)
+  - Top categories: Orthophotos / Topographic Maps
+
+---
+
+## 🔹 PART 3: Explore Page (`/explore`)
+
+- Table layout with the following columns:
+  - File Name
+  - Type (Orthophoto / Topo Map)
+  - Size
+  - Modified Date
+  - Action (View or Download)
+- Filters:
+  - Map Type: [Orthophoto, Topo Map]
+  - Zone Letter: [H, J, K, L…]
+  - Size Range (slider)
+- Interactive map next to results showing selected zone
+
+---
+
+## 🔹 PART 4: Product Page (`/map/[slug]`)
+
+- Show:
+  - Title and metadata
+  - Map view of area covered
+  - File info (format, size, last update)
+  - Preview image (thumbnail)
+  - Download button (if purchased)
+  - Buy button (if not)
+
+---
+
+## 🔹 PART 5: Checkout Page (`/checkout`)
+
+- Shopping cart summary
+- Stripe integration (test mode)
+- Total price
+- Payment form
+- Redirect to `/account` after successful payment
+
+---
+
+## 🔹 PART 6: Account Page (`/account`)
+
+- Login/Register form
+- List of previously purchased files with download links
+- Basic profile info
+
+---
+
+## 🔹 PART 7: Admin Area (Optional, phase 2)
+
+- File upload dashboard
+- Assign metadata (zone, type, size)
+- Map-based uploader for geo-referenced files
+- Only visible to users with `admin` role
+
+---
+
+## 🔹 Notes
+
+- File names can follow a structure like:
+  - `H_ORTOFOTO_2024.tif`
+  - `CARTA_TOP_01.pdf`
+- Simulate Stripe payments in test mode.
+- Use dummy files locally for testing.
+
+Please implement each part as a separate commit or step and confirm before moving on to the next. 

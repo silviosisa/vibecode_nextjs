@@ -1,0 +1,209 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Initialize Next.js Project with TailwindCSS",
+        "description": "Set up the base project structure using Next.js and TailwindCSS, including the required page routes and global layout components.",
+        "details": "1. Create a new Next.js project: `npx create-next-app@latest geodata-marketplace --typescript`\n2. Install TailwindCSS: `npm install -D tailwindcss postcss autoprefixer`\n3. Initialize Tailwind: `npx tailwindcss init -p`\n4. Configure Tailwind in `tailwind.config.js`\n5. Create the following page files:\n   - `/pages/index.tsx` (homepage)\n   - `/pages/explore.tsx` (browsing datasets)\n   - `/pages/map/[slug].tsx` (individual map details)\n   - `/pages/checkout.tsx` (payment)\n   - `/pages/account.tsx` (user dashboard)\n6. Create a global layout component with navbar and footer in `/components/Layout.tsx`\n7. Set up basic routing and navigation between pages",
+        "testStrategy": "1. Verify all pages render without errors\n2. Test navigation between pages\n3. Confirm TailwindCSS styles are properly applied\n4. Ensure responsive design works on different screen sizes\n5. Validate TypeScript configuration",
+        "priority": "high",
+        "dependencies": [],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 2,
+        "title": "Implement Map Integration with GeoJSON",
+        "description": "Integrate Leaflet.js or Mapbox GL JS for interactive map display and create a dummy GeoJSON file to simulate available zones.",
+        "details": "1. Install map library: `npm install leaflet react-leaflet` or `npm install mapbox-gl`\n2. Create a Map component in `/components/Map.tsx`\n3. Create a dummy GeoJSON file in `/public/data/zones.geojson` with polygons for zones H, J, K, etc.\n4. Implement map initialization and GeoJSON layer rendering\n5. Add click handlers for zone selection\n6. Style the zones with different colors\n7. Add popups or tooltips showing zone information\n8. Ensure the map is responsive and works on mobile devices",
+        "testStrategy": "1. Verify map loads correctly with GeoJSON data\n2. Test zone selection by clicking on different areas\n3. Confirm popups/tooltips display correct information\n4. Test responsiveness on different screen sizes\n5. Verify map controls (zoom, pan) work properly",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 3,
+        "title": "Design and Implement Homepage",
+        "description": "Create a modern landing page with headline, CTA, site explanation, and interactive map with clickable zones.",
+        "details": "1. Design a hero section with headline and 'Explore Maps' CTA button\n2. Write concise copy explaining the site's purpose\n3. Integrate the Map component from Task 2\n4. Create a section showcasing top categories (Orthophotos / Topographic Maps)\n5. Add visual elements like sample map thumbnails\n6. Implement responsive design for mobile and desktop\n7. Add smooth transitions and animations for better UX\n8. Ensure the CTA button links to the explore page",
+        "testStrategy": "1. Verify all UI elements render correctly\n2. Test CTA button navigation to explore page\n3. Confirm map interaction works as expected\n4. Test responsiveness on various screen sizes\n5. Verify visual elements load properly\n6. Check for any console errors or performance issues",
+        "priority": "medium",
+        "dependencies": [
+          1,
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 4,
+        "title": "Build Explore Page with Filtering",
+        "description": "Create the explore page with a table layout, filters for map type and zone, and an interactive map showing the selected zone.",
+        "details": "1. Create a table component with columns: File Name, Type, Size, Modified Date, Action\n2. Implement filter components:\n   - Dropdown for Map Type (Orthophoto/Topo Map)\n   - Dropdown for Zone Letter (H, J, K, L...)\n   - Slider for Size Range\n3. Create a mock data service to provide sample files\n4. Implement filter logic to update table results\n5. Integrate the Map component to highlight selected zone\n6. Add View/Download buttons in the Action column\n7. Implement responsive design for mobile view (card layout instead of table)\n8. Add pagination if there are many results",
+        "testStrategy": "1. Test filtering functionality with various combinations\n2. Verify table updates correctly when filters change\n3. Confirm map highlights the correct zone when selected\n4. Test View/Download buttons functionality\n5. Verify responsive layout on mobile devices\n6. Test with different mock data sets to ensure scalability",
+        "priority": "high",
+        "dependencies": [
+          1,
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 5,
+        "title": "Implement Product Page",
+        "description": "Create the individual map product page showing title, metadata, map view, file info, preview image, and appropriate buttons for purchase or download.",
+        "details": "1. Create dynamic route handling for `/map/[slug]`\n2. Implement data fetching based on the slug parameter\n3. Design the product page layout with:\n   - Title and metadata section\n   - Map view component showing the covered area\n   - File information panel (format, size, last update)\n   - Preview image/thumbnail\n   - Conditional rendering of Download or Buy button\n4. Create a mock purchase state to toggle between buttons\n5. Implement the download functionality (simulated)\n6. Add breadcrumb navigation\n7. Include related maps section",
+        "testStrategy": "1. Test dynamic routing with different slugs\n2. Verify all product information displays correctly\n3. Test conditional rendering of Download/Buy buttons\n4. Confirm map view shows the correct area\n5. Test download functionality\n6. Verify breadcrumb navigation works\n7. Test with various product types (Orthophoto/Topo Map)",
+        "priority": "medium",
+        "dependencies": [
+          1,
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 6,
+        "title": "Create Authentication System",
+        "description": "Implement user authentication with email/password, including registration, login, and account management functionality.",
+        "details": "1. Set up authentication state management (using Context API or Redux)\n2. Create registration form with email/password fields and validation\n3. Implement login form with validation\n4. Add password reset functionality\n5. Create protected routes that require authentication\n6. Implement session persistence using cookies or localStorage\n7. Add logout functionality\n8. Create user profile data structure\n9. Optionally, prepare for Firebase/Auth0 integration as alternative",
+        "testStrategy": "1. Test registration with valid and invalid inputs\n2. Verify login functionality with correct and incorrect credentials\n3. Test password reset flow\n4. Confirm protected routes redirect unauthenticated users\n5. Verify session persistence across page reloads\n6. Test logout functionality\n7. Check for any security vulnerabilities in the authentication flow",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 7,
+        "title": "Implement Checkout Page with Stripe Integration",
+        "description": "Create the checkout page with shopping cart summary, Stripe payment integration, and redirect after successful payment.",
+        "details": "1. Install Stripe dependencies: `npm install @stripe/stripe-js @stripe/react-stripe-js`\n2. Create shopping cart state management\n3. Design the checkout page with:\n   - Cart summary section\n   - Item list with prices\n   - Total calculation\n   - Stripe payment form\n4. Implement Stripe Elements for secure card input\n5. Set up Stripe in test mode\n6. Create payment submission handler\n7. Implement success/failure states\n8. Add redirect to account page after successful payment\n9. Implement cart persistence using localStorage",
+        "testStrategy": "1. Test adding/removing items from cart\n2. Verify total price calculation\n3. Test Stripe form with test card numbers\n4. Confirm successful payment flow with redirect\n5. Test error handling for failed payments\n6. Verify cart persistence across page reloads\n7. Test with various payment scenarios (different amounts, card types)",
+        "priority": "medium",
+        "dependencies": [
+          5,
+          6
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 8,
+        "title": "Develop Account Page",
+        "description": "Create the account page showing user profile information and previously purchased files with download links.",
+        "details": "1. Design the account page layout\n2. Create sections for:\n   - User profile information\n   - Previously purchased files\n   - Account settings\n3. Implement a table or grid for purchased files with download links\n4. Add file filtering and sorting options\n5. Create mock purchase history data\n6. Implement download functionality for purchased files\n7. Add account settings form (change password, update email, etc.)\n8. Ensure the page is only accessible to authenticated users",
+        "testStrategy": "1. Verify authentication protection works\n2. Test display of user profile information\n3. Confirm purchased files list renders correctly\n4. Test download functionality for purchased files\n5. Verify account settings forms work properly\n6. Test with various mock purchase histories\n7. Check responsive design on different devices",
+        "priority": "medium",
+        "dependencies": [
+          6,
+          7
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 9,
+        "title": "Set Up Backend API and Database",
+        "description": "Implement the backend API using FastAPI or Express, and set up the PostgreSQL database with PostGIS extension.",
+        "details": "1. Choose between:\n   - FastAPI: `pip install fastapi uvicorn sqlalchemy psycopg2-binary geoalchemy2`\n   - Express: `npm install express pg pg-promise knex`\n2. Set up database connection\n3. Create database schema for:\n   - Users table\n   - Maps/Files table with geospatial data\n   - Purchases/Orders table\n4. Implement API endpoints:\n   - User authentication (register, login, profile)\n   - Map data (list, details, search, filter)\n   - Purchases (create, list)\n5. Add geospatial queries using PostGIS\n6. Implement data validation\n7. Set up development environment with SQLite option\n8. Create seed data for development",
+        "testStrategy": "1. Test database connection and migrations\n2. Verify all API endpoints with Postman or similar tool\n3. Test geospatial queries with sample coordinates\n4. Confirm authentication endpoints work correctly\n5. Verify data validation handles invalid inputs\n6. Test with both PostgreSQL and SQLite configurations\n7. Check API performance with larger datasets",
+        "priority": "high",
+        "dependencies": [],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Framework Setup and Database Connection",
+            "description": "Set up the backend framework and establish database connection with geospatial capabilities",
+            "dependencies": [],
+            "details": "1. Initialize Node.js project with Express.js framework\n2. Configure MongoDB connection with Mongoose ODM\n3. Set up environment variables for configuration\n4. Implement database schema design with geospatial indexes\n5. Create initial project structure with routes, controllers, and models folders\n6. Implement error handling middleware\n7. Configure CORS and security middleware",
+            "status": "pending"
+          },
+          {
+            "id": 2,
+            "title": "User Authentication Endpoints",
+            "description": "Implement user registration, login, and authentication system",
+            "dependencies": [
+              1
+            ],
+            "details": "1. Create user model with proper password hashing\n2. Implement JWT token generation and validation\n3. Create registration endpoint with email verification\n4. Implement login endpoint with proper validation\n5. Add password reset functionality\n6. Create authentication middleware for protected routes\n7. Implement user profile endpoints (get, update)\n8. Add role-based authorization system",
+            "status": "pending"
+          },
+          {
+            "id": 3,
+            "title": "Map/File Data Endpoints with Geospatial Queries",
+            "description": "Implement endpoints for handling map data with geospatial functionality",
+            "dependencies": [
+              1,
+              2
+            ],
+            "details": "1. Create models for map data with GeoJSON support\n2. Implement file upload system for map data\n3. Create endpoints for querying locations within radius\n4. Add support for polygon-based geospatial queries\n5. Implement map data versioning system\n6. Create endpoints for retrieving map metadata\n7. Add caching layer for frequently accessed geospatial data\n8. Implement pagination for large result sets",
+            "status": "pending"
+          },
+          {
+            "id": 4,
+            "title": "Purchase/Order Endpoints",
+            "description": "Implement the purchase and order management system",
+            "dependencies": [
+              2,
+              3
+            ],
+            "details": "1. Create order and purchase models\n2. Implement cart functionality\n3. Create endpoints for order creation and management\n4. Implement payment integration (Stripe or similar)\n5. Add order history endpoints\n6. Create invoice generation system\n7. Implement order status tracking\n8. Add notification system for order updates",
+            "status": "pending"
+          },
+          {
+            "id": 5,
+            "title": "Data Validation Implementation",
+            "description": "Implement comprehensive data validation across all endpoints",
+            "dependencies": [
+              2,
+              3,
+              4
+            ],
+            "details": "1. Set up Joi or similar validation library\n2. Create validation schemas for all data models\n3. Implement middleware for request validation\n4. Add custom validators for geospatial data\n5. Create error response standardization\n6. Implement input sanitization for security\n7. Add rate limiting to prevent abuse\n8. Create validation documentation",
+            "status": "pending"
+          },
+          {
+            "id": 6,
+            "title": "Development Environment with Seed Data",
+            "description": "Set up development environment with sample data for testing",
+            "dependencies": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "details": "1. Create seed scripts for database population\n2. Generate realistic sample geospatial data\n3. Implement test user accounts with different roles\n4. Create sample orders and purchase history\n5. Set up automated testing environment\n6. Implement API documentation with Swagger\n7. Create Docker setup for development environment\n8. Add database migration scripts",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "Implement File Storage with AWS S3",
+        "description": "Set up file storage using AWS S3 for map files, with local mocking for development environment.",
+        "details": "1. Install AWS SDK: `npm install aws-sdk` or `pip install boto3`\n2. Create S3 bucket configuration\n3. Implement file upload functionality\n4. Create download URL generation\n5. Set up local file system mock for development\n6. Organize files in folders by zone as specified\n7. Implement file metadata storage in database\n8. Create utilities for file type detection and validation\n9. Add file size limits and validation\n10. Implement secure access control for downloads",
+        "testStrategy": "1. Test file uploads with various file types and sizes\n2. Verify download URL generation and access\n3. Confirm local development mock works properly\n4. Test folder organization by zone\n5. Verify metadata is correctly stored in database\n6. Test file validation and size limits\n7. Confirm secure access control prevents unauthorized downloads",
+        "priority": "medium",
+        "dependencies": [
+          9
+        ],
+        "status": "pending",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-06-21T15:28:20.563Z",
+      "updated": "2025-06-21T15:28:20.563Z",
+      "description": "Tasks for master context"
+    }
+  }
+}
